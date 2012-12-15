@@ -11,13 +11,13 @@ $(document).ready(function() {
   //Show the 2012 on click
   $('.button-2012').click(function() {
     //alert('foo');
-    $(this).parents('.photo-group').children('div.photo').children('img.photo-2012').fadeIn('1600');
+    $(this).parents('.photo-group').children('div.photo').children('img.photo-2012').fadeIn(3000);
   });
 
   //Hide the 2012 on click
   $('.button-1966').click(function() {
     //alert('foo');
-    $(this).parents('.photo-group').children('div.photo').children('img.photo-2012').fadeOut('1600');
+    $(this).parents('.photo-group').children('div.photo').children('img.photo-2012').fadeOut(3000);
   });
 
 });
