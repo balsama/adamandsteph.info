@@ -15,7 +15,7 @@
 body {
   color: #666;
   font-family: arial, georgia, verdana;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 h1,
@@ -566,7 +566,6 @@ h1#site-name {
 }
 
 .node-page .field-type-image .field-item {
-  height: 209px;
   overflow: hidden;
 }
 
