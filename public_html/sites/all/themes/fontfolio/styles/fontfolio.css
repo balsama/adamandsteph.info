@@ -15,7 +15,7 @@
 body {
   color: #666;
   font-family: arial, georgia, verdana;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 h1,
@@ -265,7 +265,7 @@ ul.menu {
 .big-post-box img,
 .big_post_box img {
   filter: alpha(opacity=100);
-  height: ingerit;
+  height: inherit;
   opacity: 1.0;
   width: 100%;
 }
@@ -282,6 +282,10 @@ ul.menu {
   height: 253px;
   overflow: hidden;
   width: 25%;
+}
+.big-post-box .post-box {
+  height: 100%;
+  width: 100%;
 }
 
 #sidebar .post-box,
@@ -566,6 +570,7 @@ h1#site-name {
 }
 
 .node-page .field-type-image .field-item {
+  height: 209px;
   overflow: hidden;
 }
 
@@ -614,4 +619,10 @@ ul.load_more_cont {
 
 .node-teaser .field-type-image {
   padding: 0;
+}
+
+
+a.download-link {
+  display: block;
+  margin-bottom: 20px;
 }
