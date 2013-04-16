@@ -1,0 +1,44 @@
+<?php
+  // show errors
+  if (!defined('E_STRICT')) { define('E_STRICT', 2048); } // E_STRICT isn't defined in PHP 4
+  error_reporting(E_ALL | E_STRICT);
+  ini_set('display_errors', '1');         //
+  ini_set('display_startup_errors', '1'); //
+  ini_set('track_errors', '1');           // store last error in $php_errormsg
+  ini_set('html_errors', '0');            // don't output html links in error messages
+  ini_set('log_errors', '1');
+  ini_set('error_log', dirname(__FILE__) . '/_php_error.log');
+  // end: show errors
+
+function plusoneapi_menu() {
+  $items['plusoneapi-vote/%/%'] = array(
+    'title' => t('Plus 1 API Vote'),
+    'page callback' => 'plusoneapi_vote',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+function plusoneapi_vote() {
+  if (arg(1) == 'set') {
+    if (is_numeric(arg(2))) {
+      $votes = array(
+        'entity_type' => 'plusoneapi',
+        'entity_id' => arg(2),
+        'value_type' => 'points',
+        'tag' => 'plusoneapi',
+      );
+      votingapi_set_votes($votes);
+      $votes = votingapi_recalculate_results('plusoneapi', arg(2));
+      $result = $votes[0]['value'];
+    }
+    else { $result = 'error';}
+  }
+  elseif (arg(1) == 'get') {
+    $votes = votingapi_recalculate_results('plusoneapi', arg(2));
+    $result = $votes[0]['value'];
+  }
+  print $result;
+}

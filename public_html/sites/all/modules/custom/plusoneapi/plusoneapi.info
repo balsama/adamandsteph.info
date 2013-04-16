@@ -1,0 +1,7 @@
+name = Plus 1 API
+description = "Custom plus one G"
+dependencies[] = votingapi
+dependencies[] = ctools
+package = Voting
+core = 7.x
+

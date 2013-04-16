@@ -1,1 +1,33 @@
 #main_container { font-family: 'Cutive Mono', serif;}
+
+.field-name-field-album-images img {
+  height: inherit;
+  max-width: 100%;
+}
+
+.photo-options {
+  clear: both;
+  padding: 4px 0 24px;
+}
+.plusoneapi-votes {
+  float: left;
+  margin-right: 10px;
+}
+.plusoneapi-votes .heart {
+  background-image: url(images/heart.png);
+  cursor: pointer;
+  display: block;
+  float: left;
+  height: 0px;
+  margin-right: 4px;
+  overflow: hidden;
+  padding-top: 12px;
+  width: 15px;
+}
+
+a.download-link {
+  text-decoration: underline;
+}
+a.download-link:hover {
+  text-decoration: none;
+}
