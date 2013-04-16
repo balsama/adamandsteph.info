@@ -1,4 +1,5 @@
 #main_container { font-family: 'Cutive Mono', serif;}
+body { font-size: 15px;}
 
 .field-name-field-album-images img {
   height: inherit;
