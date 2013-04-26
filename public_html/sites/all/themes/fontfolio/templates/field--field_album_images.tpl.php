@@ -58,7 +58,7 @@ jQuery(document).ready(function() {
   }
   else {
     jQuery('.box').click(function(e) {
-      e.prevent.default;
+      e.preventDefault();
     });
   }
 });
