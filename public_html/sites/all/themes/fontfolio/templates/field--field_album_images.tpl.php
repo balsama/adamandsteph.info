@@ -45,12 +45,21 @@ drupal_add_js(base_path() . drupal_get_path('theme', 'fontfolio') . '/libraries/
 
 <script>
 jQuery(document).ready(function() {
-  jQuery('.box').fancybox({
-    'type': 'image',
+  if (screen.width > 480) {
+    jQuery('.box').fancybox({
+      'type': 'image',
       'overlayColor': '#000',
       'overlayOpacity': '0.7',
       'padding': 0,
-      'margin': 13,
-  });
+      'margin': 70,
+      'centerOnScroll': true,
+      'titlePosition': 'inside',
+    });
+  }
+  else {
+    jQuery('.box').click(function(e) {
+      e.prevent.default;
+    });
+  }
 });
 </script>
