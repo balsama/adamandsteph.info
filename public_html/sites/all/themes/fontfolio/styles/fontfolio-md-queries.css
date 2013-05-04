@@ -145,6 +145,10 @@ input[type="text"] {
 /* Landscape smartphones, narrow tablets and below */
 
 @media screen and (max-width: 767px) {
+  #node-2 .content iframe {
+    width: 250px;
+    height: 188px;
+  }
 
   #header_top {
     position: relative;
