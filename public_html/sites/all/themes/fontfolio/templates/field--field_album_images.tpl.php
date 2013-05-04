@@ -63,7 +63,7 @@ jQuery(document).ready(function() {
     });
   }
 
-  if (screen.width > 1024) {
+  if (screen.width > 480) {
     jQuery('.photo-options').html('');
     jQuery('.photo-options').hide();
     jQuery(".field-items").justifiedGallery({
