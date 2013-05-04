@@ -142,7 +142,7 @@ __justifiedGallery_galleryID = 0;
         'margin': 70,
         'centerOnScroll': true,
         'titlePosition': 'over',
-        'titleFormat': 'foo'
+        'titleFormat': ''
       });
 
 

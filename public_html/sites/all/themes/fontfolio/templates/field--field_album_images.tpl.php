@@ -18,7 +18,7 @@ drupal_add_js(base_path() . drupal_get_path('theme', 'fontfolio') . '/libraries/
 <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <div class="field-items"<?php print $content_attributes; ?>>
     <?php foreach ($items as $delta => $item): ?>
-        <?php print l(render($item) . '<p class="pee">fooob</p>', file_create_url($item['#item']['uri']), array('html' => TRUE, 'attributes' => array('class' => 'box', 'rel' => 'gallery', 'title' => $item['#item']['fid'], 'alt' => 'foob'))); ?>
+        <?php print l(render($item), file_create_url($item['#item']['uri']), array('html' => TRUE, 'attributes' => array('class' => 'box', 'rel' => 'gallery', 'title' => $item['#item']['fid'], 'alt' => 'foob'))); ?>
         <div class="photo-options">
           <a class="plusoneapi-votes" id="plusoneapi-votes-<?php print $item['#item']['fid']; ?>" rel="<?php print $item['#item']['fid']; ?>" title="Plus 1">
             <span class="heart">Votes:</span>
@@ -79,9 +79,6 @@ jQuery(document).ready(function() {
       'rowHeight': 380,
       'captions': true,
       'lightbox': false,
-    });
-    jQuery('.download-link').click(function(e) {
-      alert('foo');
     });
   }
 });
