@@ -76,7 +76,7 @@ jQuery(document).ready(function() {
             'lt1024':''
       },
       'usedSuffix':'lt500',
-      'rowHeight': 380,
+      'rowHeight': 320,
       'captions': true,
       'lightbox': false,
     });
