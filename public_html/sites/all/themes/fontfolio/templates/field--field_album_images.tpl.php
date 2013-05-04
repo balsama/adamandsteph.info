@@ -14,39 +14,40 @@
 
 drupal_add_js(base_path() . drupal_get_path('theme', 'fontfolio') . '/libraries/fancybox/jquery.fancybox-1.3.4.js');
 ?>
-  <pre><?php //print_r($foo); ?></pre>
 
 <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <div class="field-items"<?php print $content_attributes; ?>>
     <?php foreach ($items as $delta => $item): ?>
-      <div class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>>
-        <?php print l(render($item), file_create_url($item['#item']['uri']), array('html' => TRUE, 'attributes' => array('class' => 'box', 'rel' => 'gallery'))); ?>
-      </div>
-      <div class="photo-options">
-        <a class="plusoneapi-votes" id="plusoneapi-votes-<?php print $item['#item']['fid']; ?>" rel="<?php print $item['#item']['fid']; ?>" title="Plus 1">
-          <span class="heart">Votes:</span>
-          <span class="count">
-            <?php
-            $votes = votingapi_recalculate_results('plusoneapi', $item['#item']['fid']);
-            if (isset($votes[0])) {
-              print $votes[0]['value'];
-            }
-            ?>
-          </span>
-        </a>
-
-        <?php print l('Download Original', 'sites/all/themes/fontfolio/download.php', array('query' => array('path' => file_create_url($item['#item']['uri'])), 'attributes' => array('class' => 'download-link', 'title' => 'Download original file'))); ?>
-      </div>
-
+        <?php print l(render($item) . '<p class="pee">fooob</p>', file_create_url($item['#item']['uri']), array('html' => TRUE, 'attributes' => array('class' => 'box', 'rel' => 'gallery', 'title' => $item['#item']['fid'], 'alt' => 'foob'))); ?>
+        <div class="photo-options">
+          <a class="plusoneapi-votes" id="plusoneapi-votes-<?php print $item['#item']['fid']; ?>" rel="<?php print $item['#item']['fid']; ?>" title="Plus 1">
+            <span class="heart">Votes:</span>
+            <span class="count">
+              <?php
+              $votes = votingapi_recalculate_results('plusoneapi', $item['#item']['fid']);
+              if (isset($votes[0])) {
+                print $votes[0]['value'];
+              }
+              ?>
+            </span>
+          </a>
+          <?php print l('Download Original', 'sites/all/themes/fontfolio/download.php', array('query' => array('path' => file_create_url($item['#item']['uri'])), 'attributes' => array('class' => 'download-link', 'title' => 'Download original file'))); ?>
+        </div>
     <?php endforeach; ?>
   </div>
 </div>
-<?php drupal_add_js(drupal_get_path('module', 'plusoneapi') . '/plusoneapi.js'); ?>
+<?php
+drupal_add_js(drupal_get_path('module', 'plusoneapi') . '/plusoneapi.js');
+drupal_add_css(drupal_get_path('theme', 'fontfolio') . '/libraries/justified/justified.css');
+drupal_add_js(drupal_get_path('theme', 'fontfolio') . '/libraries/justified/justified.js');
+drupal_add_css(drupal_get_path('theme', 'fontfolio') . '/libraries/colorbox/colorbox.css');
+drupal_add_js(drupal_get_path('theme', 'fontfolio') . '/libraries/colorbox/colorbox.js');
+?>
 
 <script>
 jQuery(document).ready(function() {
   if (screen.width > 480) {
-    jQuery('.box').fancybox({
+    jQuery('img').fancybox({
       'type': 'image',
       'overlayColor': '#000',
       'overlayOpacity': '0.7',
@@ -59,6 +60,28 @@ jQuery(document).ready(function() {
   else {
     jQuery('.box').click(function(e) {
       e.preventDefault();
+    });
+  }
+
+  if (screen.width > 1024) {
+    jQuery('.photo-options').html('');
+    jQuery('.photo-options').hide();
+    jQuery(".field-items").justifiedGallery({
+      'sizeSuffixes' : {
+            'lt100':'',
+            'lt240':'',
+            'lt320':'',
+            'lt500':'',
+            'lt640':'',
+            'lt1024':''
+      },
+      'usedSuffix':'lt500',
+      'rowHeight': 380,
+      'captions': true,
+      'lightbox': false,
+    });
+    jQuery('.download-link').click(function(e) {
+      alert('foo');
     });
   }
 });
