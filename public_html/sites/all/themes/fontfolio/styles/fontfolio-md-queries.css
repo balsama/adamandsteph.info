@@ -320,4 +320,5 @@ input[type="text"] {
   .download-link { color: #fff;}
   .plusoneapi-votes:hover { color: #fff !important;}
   .download-link:hover { color: #fff; text-decoration: underline !important;}
+  #fancybox-title-over { display: none !important;}
 }

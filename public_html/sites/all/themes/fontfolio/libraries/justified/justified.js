@@ -96,7 +96,7 @@ __justifiedGallery_galleryID = 0;
 		function buildImage(image, suffix, nw, nh, l, minRowHeight, settings){
 			var ris;
 			ris =  "<div class=\"jg-image\" style=\"left:" + l + "px\">";
-			ris += " <a href=\"" + image["href"] + "\" ";
+			ris += " <a class=\"box\" rel=\"gallery\" href=\"" + image["href"] + "\" ";
 
 			if(settings.lightbox == true)
 				ris += "rel=\"" + image["rel"] + "\"";
@@ -134,6 +134,17 @@ __justifiedGallery_galleryID = 0;
         var id = jQuery(this).attr('rel');
         jQuery(this).children('.count').load('/plusoneapi-vote/get/' + id);
       });
+      jQuery('.box').fancybox({
+        'type': 'image',
+        'overlayColor': '#000',
+        'overlayOpacity': '0.7',
+        'padding': 0,
+        'margin': 70,
+        'centerOnScroll': true,
+        'titlePosition': 'over',
+        'titleFormat': 'foo'
+      });
+
 
 			return ris;
 		}
