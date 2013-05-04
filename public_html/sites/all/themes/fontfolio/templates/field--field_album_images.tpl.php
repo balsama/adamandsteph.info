@@ -46,7 +46,7 @@ drupal_add_js(drupal_get_path('theme', 'fontfolio') . '/libraries/colorbox/color
 
 <script>
 jQuery(document).ready(function() {
-  if (screen.width > 480) {
+  if (screen.width > 1024) {
     jQuery('img').fancybox({
       'type': 'image',
       'overlayColor': '#000',
@@ -63,7 +63,7 @@ jQuery(document).ready(function() {
     });
   }
 
-  if (screen.width > 480) {
+  if (screen.width > 1024) {
     jQuery('.photo-options').html('');
     jQuery('.photo-options').hide();
     jQuery(".field-items").justifiedGallery({
