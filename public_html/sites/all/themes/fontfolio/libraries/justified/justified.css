@@ -24,8 +24,8 @@
         right: 0;
         padding: 5px 5px 10px 8px;
         text-align: left;
-        opacity: 0;
-        filter:alpha(opacity=0); /* IE8 or Earlier */
+        opacity: 0.3;
+        filter:alpha(opacity=30); /* IE8 or Earlier */
     }
     .justifiedGallery .jg-loading-img{
         margin: auto;

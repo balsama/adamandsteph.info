@@ -258,7 +258,7 @@ __justifiedGallery_galleryID = 0;
 				});
 				$(cont).find(".jg-image").mouseleave(function(sender){
 					$(sender.currentTarget).find(".jg-image-label").stop();
-					$(sender.currentTarget).find(".jg-image-label").fadeTo(500, 0);
+					$(sender.currentTarget).find(".jg-image-label").fadeTo(500, 0.3);
 				});
 			}
 			
